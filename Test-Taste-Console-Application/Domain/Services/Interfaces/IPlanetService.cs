@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Test_Taste_Console_Application.Domain.DataTransferObjects;
 using Test_Taste_Console_Application.Domain.Objects;
 
@@ -10,5 +11,9 @@ namespace Test_Taste_Console_Application.Domain.Services.Interfaces
     public interface IPlanetService
     {
         IEnumerable<Planet> GetAllPlanets();
+
+        // Get all Planets that have at least one moon
+
+        Task<IEnumerable<Planet>> GetPlanetsWithMoonsAsync();
     }
 }
