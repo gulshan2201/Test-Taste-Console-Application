@@ -185,5 +185,15 @@ namespace Test_Taste_Console_Application.Domain.Services
                 --------------------+--------------------------------------------------
             */
         }
+
+        public void OutputPlanetsWithMoonsAndAverageTemperatureToConsole()
+        {
+            var planetsWithMoons = _planetService.GetPlanetsWithMoonsAsync().Result;
+            foreach (var planet in planetsWithMoons)
+            {
+                Console.WriteLine($"Planet: {planet.Id}");
+                Console.WriteLine($"Avg Moon Temp: {planet.GetAverageMoonTemperature():F1}°C");
+            }
+        }
     }
 }

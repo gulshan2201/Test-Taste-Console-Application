@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Test_Taste_Console_Application.Constants;
 using Test_Taste_Console_Application.Domain.DataTransferObjects;
@@ -87,5 +89,13 @@ namespace Test_Taste_Console_Application.Domain.Services
                 .ToString()
                 .Normalize(NormalizationForm.FormC);
         }
+
+        public async Task<IEnumerable<Planet>> GetPlanetsWithMoonsAsync()
+        {
+            var allPlanets = await GetPlanetsWithMoonsAsync();
+            return allPlanets.Where(p => p.HasMoons());
+        }
+
+       
     }
 }
